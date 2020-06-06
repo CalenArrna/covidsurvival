@@ -9,15 +9,15 @@ public class Tile {
     private int col;
     private int width;
     private int height;
-    Image image;
+    static Image image;
+    static {  image = Toolkit.getDefaultToolkit().getImage("res/open_tileset.png");
+    }
 
-
-    public Tile(int row, int col, int width, int height, Image image) {
+    public Tile(int row, int col, int width, int height) {
         this.row = row;
         this.col = col;
         this.width = width;
         this.height = height;
-        this.image = image;
     }
 
     public void paint(Graphics2D g, int x, int y) {

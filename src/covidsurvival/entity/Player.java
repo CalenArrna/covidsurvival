@@ -2,7 +2,7 @@ package covidsurvival.entity;
 
 import covidsurvival.GameWindow;
 import covidsurvival.level.Obstacle;
-import covidsurvival.level.Wall;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

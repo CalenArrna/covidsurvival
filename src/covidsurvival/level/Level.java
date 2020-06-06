@@ -11,10 +11,17 @@ public class Level {
         image = Toolkit.getDefaultToolkit().getImage("res/open_tileset.png");
         for (int i = 0; i < tiles.length ; i++) {
             for (int j = 0; j < tiles[i].length ; j++) {
-                if (j % 2 == 0) {
-                    tiles[i][j] = new Tile(0,5,1,1,image);
-                }else {
-                    tiles[i][j] = new Tile(0,2,1,1,image);
+                if (i < 7 && j < 10 ) {
+                    tiles[i][j] = new Tile(0, 3, 1, 1);
+                }else if (i < 7 && j < 25){
+                    tiles[i][j] = new Tile(0, 6, 1, 1);
+                    }
+                else {
+                    if (j % 2 == 0) {
+                        tiles[i][j] = new Tile(0, 5, 1, 1);
+                    } else {
+                        tiles[i][j] = new Tile(0, 4, 1, 1);
+                    }
                 }
             }
         }
