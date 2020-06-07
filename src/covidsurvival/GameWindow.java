@@ -3,10 +3,7 @@ package covidsurvival;
 import covidsurvival.entity.Player;
 import covidsurvival.level.Level;
 import covidsurvival.level.Obstacle;
-import covidsurvival.level.Obstacles.Carpet;
-import covidsurvival.level.Obstacles.Desk;
-import covidsurvival.level.Obstacles.Fridge;
-import covidsurvival.level.Obstacles.Tree;
+import covidsurvival.level.Obstacles.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +20,7 @@ public class GameWindow extends JPanel implements ActionListener {
     public static final int WIDTH = 980;
     private ArrayList<BufferedImage> imageList = new ArrayList<>();
     private Level level = new Level(35,35);
-    private final Player player = new Player(15, 200);
+    private final Player player = new Player(15, 160);
     private java.util.List<Obstacle> obstacles = new ArrayList<>();
 
     public GameWindow() {
@@ -31,11 +28,41 @@ public class GameWindow extends JPanel implements ActionListener {
         Timer mainTimer = new Timer(16, this);
         mainTimer.start();
         addKeyListener(player);
-        obstacles.add(new Tree(150,150));
-        obstacles.add(new Tree(200,200));
-        obstacles.add(new Desk(10,10));
-        obstacles.add(new Fridge(100,110));
-        obstacles.add(new Carpet(500,30));
+        obstacles.add(new Desk(235,0));
+        obstacles.add(new Fridge(420,260));
+        obstacles.add(new Carpet1(60,130));
+        obstacles.add(new Bed(80,0));
+        obstacles.add(new Chair1(205,25));
+        obstacles.add(new Bookshelf(320,0));
+        obstacles.add(new Radio(10,5));
+        obstacles.add(new Flower(10,220));
+        obstacles.add(new Telephone(5,480));
+        obstacles.add(new TV(100,220));
+        obstacles.add(new Bookshelf2(190,240));
+        obstacles.add(new Carpet2(55,330));
+        obstacles.add(new Couch(80,480));
+        obstacles.add(new Candles(235,450));
+        obstacles.add(new Frontdoor(335,465));
+        obstacles.add(new Table2(460,260));
+        obstacles.add(new GasStove(530,260));
+        obstacles.add(new Sink(570,260));
+        obstacles.add(new Table1(510,380));
+        obstacles.add(new Chair2(480,395));
+        obstacles.add(new Chair2(570,395));
+        obstacles.add(new Chair2(525,352));
+        obstacles.add(new Chair2(525,435));
+        obstacles.add(new Flower(440,450));
+        obstacles.add(new Carpet2 (495,145));
+        obstacles.add(new Toilette(435,200));
+        obstacles.add(new Shower(550,10));
+        obstacles.add(new MirroredSink(450,10));
+
+
+
+
+
+
+
 
         //obstacles.add(new Obstacle(200,200,15,0,3,3));
     }
