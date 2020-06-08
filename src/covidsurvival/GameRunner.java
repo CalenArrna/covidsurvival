@@ -7,8 +7,6 @@ import java.awt.event.KeyListener;
 
 public class GameRunner {
 
-
-
     public static void main(String[] args) {
         JFrame frame = new JFrame("CovidSurvival");
         frame.add(new GameWindow()).setBackground(Color.BLACK);
@@ -17,8 +15,5 @@ public class GameRunner {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.getPreferredSize();
-
-
-
     }
 }

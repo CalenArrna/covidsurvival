@@ -20,7 +20,7 @@ public class GameWindow extends JPanel implements ActionListener {
     public static final int WIDTH = 980;
     private ArrayList<BufferedImage> imageList = new ArrayList<>();
     private Level level = new Level(35,35);
-    private final Player player = new Player(15, 160);
+    private final Player player = new Player(150, 110);
     private java.util.List<Obstacle> obstacles = new ArrayList<>();
 
     public GameWindow() {
@@ -28,13 +28,11 @@ public class GameWindow extends JPanel implements ActionListener {
         Timer mainTimer = new Timer(16, this);
         mainTimer.start();
         addKeyListener(player);
-        obstacles.add(new Desk(235,0));
-        obstacles.add(new Fridge(420,260));
-        obstacles.add(new Carpet1(60,130));
-        obstacles.add(new Bed(80,0));
+        obstacles = level.getObstacles();
         obstacles.add(new Chair1(205,25));
         obstacles.add(new Bookshelf(320,0));
         obstacles.add(new Radio(10,5));
+        obstacles.add(new Fridge(420,260));
         obstacles.add(new Flower(10,220));
         obstacles.add(new Telephone(5,480));
         obstacles.add(new TV(100,220));
