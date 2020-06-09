@@ -4,9 +4,9 @@ import covidsurvival.level.Obstacle;
 
 import java.awt.*;
 
-public class Shower extends Obstacle {
-    public Shower(int x, int y) {
-        super(x, y, 7, 4, 2, 2);
+public class Hole extends Obstacle {
+    public Hole(int x, int y) {
+        super(x, y, 10, 2, 1, 1);
     }
 
     @Override
