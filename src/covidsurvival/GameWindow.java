@@ -22,6 +22,7 @@ public class GameWindow extends JPanel implements ActionListener {
     private Level level = new Level(35,35);
     private final Player player = new Player(150, 110);
     private java.util.List<Obstacle> obstacles = new ArrayList<>();
+    private java.util.List<Obstacle> interactables = new ArrayList<>();
 
     public GameWindow() {
         this.setFocusable(true);
@@ -29,10 +30,15 @@ public class GameWindow extends JPanel implements ActionListener {
         mainTimer.start();
         addKeyListener(player);
         obstacles = level.getObstacles();
+        interactables = level.getInteractables();
+        if (interactables == null) {
+            System.out.println("Gameben is null");
+        }else{
+            System.out.println(interactables.get(0));
+        }
         obstacles.add(new Chair1(205,25));
         obstacles.add(new Bookshelf(320,0));
         obstacles.add(new Radio(10,5));
-        obstacles.add(new Fridge(420,260));
         obstacles.add(new Flower(10,220));
         obstacles.add(new Telephone(5,480));
         obstacles.add(new TV(100,220));
@@ -86,6 +92,7 @@ public class GameWindow extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         player.update();
         player.move(obstacles);
+        player.interact(interactables);
         repaint();
     }
 }

@@ -5,11 +5,13 @@ import covidsurvival.level.Obstacles.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Level {
     Tile[][] tiles;
     Image image;
     private ArrayList<Obstacle> obstacles;
+    private ArrayList<Obstacle> interactables;
 
     public Level(int width, int height) {
         tiles = new Tile[width][height];
@@ -38,6 +40,7 @@ public class Level {
             }
         }
         fillObstacles(levelRowCount,levelColCount);
+        fillInteractables();
     }
 
     private void fillObstacles (int rowCount, int colCount) {
@@ -56,7 +59,7 @@ public class Level {
                 if (row == 0 && col == 7) obstacles.add(new Desk(32*col,32*row));
                 if (row == 4 && col == 2) obstacles.add(new Carpet1(32*col,32*row));
                 if (row == 0 && col == 2) obstacles.add(new Bed(32*col,32*row));
-
+                if (row == 9 &&col == 14) obstacles.add(new Fridge(32*col,32*row));
             }
         }
     }
@@ -71,5 +74,18 @@ public class Level {
                 tiles[i][j].paint(g, j, i);
             }
         }
+    }
+
+    private void fillInteractables () {
+        interactables = new ArrayList<>();
+        for (Obstacle obstacle : obstacles) {
+            if (obstacle instanceof Interactable) {
+                interactables.add(obstacle);
+            }
+        }
+    }
+
+    public ArrayList<Obstacle> getInteractables() {
+        return interactables;
     }
 }
