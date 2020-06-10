@@ -1,5 +1,6 @@
 package covidsurvival.level.Obstacles;
 
+import covidsurvival.GameWindow;
 import covidsurvival.level.Interactable;
 import covidsurvival.level.Obstacle;
 
@@ -28,12 +29,15 @@ public class Fridge extends Obstacle implements Interactable {
 
 
     public void drawInteract(Graphics2D g) {
-        Font font = new Font("arial", Font.BOLD, 16);
-        g.setFont(font);
-        g.drawRect(50, 50, 200, 50);
-        g.setColor(Color.WHITE);
-        g.fillRect(50, 50, 200, 50);
-        g.setColor(Color.BLACK);
-        g.drawString("Im Cold and freezed!", 60, 80);
+        GameWindow.drawThePopUpWindow(g,200,200,"Ez lesz a szöveg a hűtőn!",
+                "válasz1","válasz2","válasz3",null);
+
+//        Font font = new Font("arial", Font.BOLD, 16);
+//        g.setFont(font);
+//        g.drawRect(50, 50, 200, 50);
+//        g.setColor(Color.WHITE);
+//        g.fillRect(50, 50, 200, 50);
+//        g.setColor(Color.BLACK);
+//        g.drawString("Im Cold and freezed!", 60, 80);
     }
 }

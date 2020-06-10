@@ -112,10 +112,11 @@ public class Player extends Entity implements KeyListener {
             velX = 0;
         } else if (key == KeyEvent.VK_DOWN) {
             velY = 0;
+
         } else if (key == KeyEvent.VK_RIGHT) {
             velX = 0;
         } else if (key == KeyEvent.VK_SPACE) {
-            System.out.println("Space released!");
+            System.out.println("Space released!");//TODO Debug only
             interactRect = new Rectangle();
         }
     }
@@ -129,7 +130,7 @@ public class Player extends Entity implements KeyListener {
             for (Obstacle interactable : interactables) {
                 if (interactRect.intersects(interactable.getRect())) {
                     ((Interactable) interactable).interact();
-                    System.out.println("interact of OBject called");
+                    System.out.println("interact of OBject called"); //TODO debug only
                 }
             }
        /* }else if (interactables == null){
