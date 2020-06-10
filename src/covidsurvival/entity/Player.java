@@ -93,19 +93,11 @@ public class Player extends Entity implements KeyListener {
             velX = 2;
         }else if (key == KeyEvent.VK_SPACE) {
             System.out.println("Space pressed!");
-            switch (direction){
-                case 0 :
-                    interactRect = new Rectangle(x+12,y,10,10);
-                    break;
-                case 1 :
-                    interactRect = new Rectangle(x+36,y+23,10,10);
-                    break;
-                case 2 :
-                    interactRect = new Rectangle(x+12,y+45,10,10);
-                    break;
-                case 3 :
-                    interactRect = new Rectangle(x-10,y+23,10,10);
-                    break;
+            switch (direction) {
+                case 0 -> interactRect = new Rectangle(x + 12, y, 10, 10);
+                case 1 -> interactRect = new Rectangle(x + 36, y + 23, 10, 10);
+                case 2 -> interactRect = new Rectangle(x + 12, y + 45, 10, 10);
+                case 3 -> interactRect = new Rectangle(x - 10, y + 23, 10, 10);
             }
         }
     }
@@ -140,10 +132,10 @@ public class Player extends Entity implements KeyListener {
                     System.out.println("interact of OBject called");
                 }
             }
-        }else if (interactables == null){
+       /* }else if (interactables == null){
             System.out.println("Ez null");
         }else {
-            System.out.println("nem megy bele");
+            System.out.println("nem megy bele");*/
         }
     }
 }

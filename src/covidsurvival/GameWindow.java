@@ -60,14 +60,6 @@ public class GameWindow extends JPanel implements ActionListener {
         obstacles.add(new Toilette(435,200));
         obstacles.add(new Shower(550,10));
         obstacles.add(new MirroredSink(450,10));
-
-
-
-
-
-
-
-
         //obstacles.add(new Obstacle(200,200,15,0,3,3));
     }
 
