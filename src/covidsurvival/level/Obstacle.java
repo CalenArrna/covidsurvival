@@ -4,7 +4,7 @@ import covidsurvival.entity.Entity;
 
 import java.awt.*;
 
-public class Obstacle extends Entity {
+public abstract class Obstacle extends Entity {
     private static int tileWidth = 32;
     private static int tileHeight = 32;
     private int row;

@@ -1,9 +1,8 @@
 package covidsurvival;
 
 import covidsurvival.entity.Player;
-import covidsurvival.level.Level;
+import covidsurvival.level.levels.Home;
 import covidsurvival.level.Obstacle;
-import covidsurvival.level.Obstacles.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +18,7 @@ public class GameWindow extends JPanel implements ActionListener {
     public static final int HEIGHT = 1200; //TODO : adapt to level size
     public static final int WIDTH = 980;
     private ArrayList<BufferedImage> imageList = new ArrayList<>();
-    private Level level = new Level(35,35);
+    private Home home = new Home(35,35);
     private final Player player = new Player(160, 160);
     private java.util.List<Obstacle> obstacles = new ArrayList<>();
 
@@ -28,7 +27,7 @@ public class GameWindow extends JPanel implements ActionListener {
         Timer mainTimer = new Timer(16, this);
         mainTimer.start();
         addKeyListener(player);
-        obstacles = level.getObstacles();
+        obstacles = home.getObstacles();
     }
 
 
@@ -37,7 +36,7 @@ public class GameWindow extends JPanel implements ActionListener {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
-        level.paint(g2d);
+        home.paint(g2d);
         for (Obstacle obstacle : obstacles) {
             obstacle.paint(g2d);
         }
