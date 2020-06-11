@@ -12,6 +12,7 @@ public class Frontdoor extends Obstacle {
     @Override
     public void paint(Graphics2D g) {
         super.paint(g);
+        rect.setBounds(x,y,32,44);
     }
 
 }

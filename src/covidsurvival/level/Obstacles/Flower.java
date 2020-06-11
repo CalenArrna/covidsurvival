@@ -17,8 +17,6 @@ public class Flower extends Obstacle {
     public void paint(Graphics2D g) {
         super.paint(g);
         rect.setBounds(x+5,y+34,22,20);
-        g.setColor(Color.BLACK);
-        g.drawRect(rect.x,rect.y,rect.width,rect.height);
     }
 
 }

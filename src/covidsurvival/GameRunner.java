@@ -7,7 +7,6 @@ import java.awt.event.KeyListener;
 
 public class GameRunner {
     //TODO: Create interacts for objects
-    //TODO: Fix Collosion
     //TODO: Fix dialog mark position
     //TODO: Change dialog rect to a nice img
     //TODO: Create a corridor map, for map change

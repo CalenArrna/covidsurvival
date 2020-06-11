@@ -12,6 +12,7 @@ public class Bed extends Obstacle {
     @Override
     public void paint(Graphics2D g) {
         super.paint(g);
+        rect.setBounds(x+2,y+7,60,88);
     }
 
 }
