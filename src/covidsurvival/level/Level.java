@@ -5,11 +5,14 @@ import covidsurvival.level.Tile;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public abstract class Level {
     protected Tile[][] tiles;
     protected Image image;
     protected ArrayList<Obstacle> obstacles;
+    protected ArrayList<Obstacle> interactables;
 
     public Level(int width, int height) {
         tiles = new Tile[width][height];
@@ -28,5 +31,18 @@ public abstract class Level {
                 tiles[i][j].paint(g, j, i);
             }
         }
+    }
+
+    protected void fillInteractables () {
+        interactables = new ArrayList<>();
+        for (Obstacle obstacle : obstacles) {
+            if (obstacle instanceof Interactable) {
+                interactables.add(obstacle);
+            }
+        }
+    }
+
+    public ArrayList<Obstacle> getInteractables() {
+        return interactables;
     }
 }

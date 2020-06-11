@@ -34,6 +34,7 @@ public class Home extends Level {
             }
         }
         fillObstacles(levelRowCount, levelColCount);
+        fillInteractables();
     }
 
     protected void fillObstacles(int rowCount, int colCount) {
@@ -113,4 +114,6 @@ public class Home extends Level {
             }
         }
     }
+
+
 }

@@ -1,8 +1,11 @@
 package covidsurvival.level;
 
+import covidsurvival.Option;
 import covidsurvival.entity.Entity;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Obstacle extends Entity {
     private static int tileWidth = 32;
