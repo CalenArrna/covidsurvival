@@ -9,24 +9,28 @@ import java.util.List;
 public class Dialog implements KeyListener {
     boolean isVisiable = false;
     private String text;
+    private List<String> MultilineText;
     private List<Option> options;
     private int selected;
+    private int width = 400;
+    private int height = 150;
+
 
     void paint(Graphics2D g) {
         Font font = new Font("arial", Font.BOLD, 14);
         g.setFont(font);
         int windowX = GameWindow.WIDTH / 2 - 200 / 2;
         int windowY = GameWindow.HEIGHT / 2 - 200 / 2;
-        g.drawRect(windowX, windowY, 200, 200);
+        g.drawRect(windowX, windowY, width, height);
         g.setColor(Color.WHITE);
-        g.fillRect(windowX, windowY, 200, 200);
+        g.fillRect(windowX, windowY, width, height);
         g.setColor(Color.BLACK);
         g.drawString(text, windowX + 10, windowY + 20);
-        int y = 45;
+        int y = 52;
         int i = 0;
         for (Option option : options) {
             if (selected == i) {
-                g.fillRect(windowX, windowY+y,10,10);
+                g.fillRect(windowX+5, windowY+y-10,10,10);
             }
             g.drawString(option.title, windowX + 20, windowY + y);
             y+=15;
@@ -35,7 +39,6 @@ public class Dialog implements KeyListener {
     }
 
     public void show(String text, List<Option> answers) {
-        System.out.println("Im showing");
         this.text = text;
         options = answers;
         isVisiable = true;
