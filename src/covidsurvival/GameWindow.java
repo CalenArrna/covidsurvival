@@ -18,8 +18,8 @@ public class GameWindow extends JPanel implements ActionListener {
     private static final String NAME = "covidsurvival";
     public static final int HEIGHT = 1200; //TODO : adapt to level size
     public static final int WIDTH = 980;
-    private Level level = new Home(35,35);
-    private final Player player = new Player(160, 160);
+    private Level level = new Home(70,28);
+    private final Player player = new Player(level.playerStartingPosX, level.playerStartingPosY);
     private java.util.List<Obstacle> obstacles = new ArrayList<>();
     private java.util.List<Obstacle> interactables = new ArrayList<>();
     static Timer mainTimer;

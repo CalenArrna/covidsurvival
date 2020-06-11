@@ -27,6 +27,11 @@ public class Player extends Entity implements KeyListener {
        image = Toolkit.getDefaultToolkit().getImage("res/frichim.png");
     }
 
+    public void setPlayerStartingPosition(int x, int y) {
+        this.x =x;
+        this.y =y;
+    }
+
     public void update() {
         countFrames++;
         if (countFrames >= frameDelay) {
@@ -108,7 +113,6 @@ public class Player extends Entity implements KeyListener {
         }
     }
 
-
     public void keyReleased(KeyEvent e) {
        if (GameWindow.getDialog().isVisiable()) {
            interactRect = new Rectangle();
@@ -150,4 +154,6 @@ public class Player extends Entity implements KeyListener {
             System.out.println("nem megy bele");
         }
     }
+
+
 }

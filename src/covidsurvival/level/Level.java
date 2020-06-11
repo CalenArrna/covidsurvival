@@ -13,8 +13,10 @@ public abstract class Level {
     protected Image image;
     protected ArrayList<Obstacle> obstacles;
     protected ArrayList<Obstacle> interactables;
+    public int playerStartingPosX;
+    public int playerStartingPosY;
 
-    public Level(int width, int height) {
+    public Level(int height, int width) {
         tiles = new Tile[width][height];
         image = Toolkit.getDefaultToolkit().getImage("res/open_tileset.png");
     }

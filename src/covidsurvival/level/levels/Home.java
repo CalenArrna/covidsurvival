@@ -8,9 +8,10 @@ import java.util.ArrayList;
 
 public class Home extends Level {
 
-
     public Home(int width, int height) {
         super(width, height);
+        playerStartingPosX = 164;
+        playerStartingPosY = 164;
         int levelRowCount = 18;
         int levelColCount = 21;
         //Construct the tiles here

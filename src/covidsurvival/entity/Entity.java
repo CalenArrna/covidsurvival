@@ -3,8 +3,6 @@ package covidsurvival.entity;
 import java.awt.*;
 
 public abstract class Entity {
-
-
     protected int x, y;
     protected Rectangle rect = new Rectangle();
 
