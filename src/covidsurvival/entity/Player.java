@@ -23,13 +23,13 @@ public class Player extends Entity implements KeyListener {
 
     public Player(int x, int y) {
         super(x, y);
-        rect = new Rectangle(x+10, y+40, 20, 10);
-       image = Toolkit.getDefaultToolkit().getImage("res/frichim.png");
+        rect = new Rectangle(x + 10, y + 40, 20, 10);
+        image = Toolkit.getDefaultToolkit().getImage("res/frichim.png");
     }
 
     public void setPlayerStartingPosition(int x, int y) {
-        this.x =x;
-        this.y =y;
+        this.x = x;
+        this.y = y;
     }
 
     public void update() {
@@ -60,10 +60,10 @@ public class Player extends Entity implements KeyListener {
         g2d.drawImage(image, this.x, this.y, x + frameWidth, y + frameHeight, frameX, frameY, frameX + frameWidth, frameY + frameHeight, null);
 
         g2d.setColor(Color.RED);
-        g2d.drawRect(rect.x,rect.y,rect.width,rect.height);
+        g2d.drawRect(rect.x, rect.y, rect.width, rect.height);
     }
 
-    public void move (List<Obstacle> obstacles) {
+    public void move(List<Obstacle> obstacles) {
         int xPred = x, yPred = y;
 
         if (y + velY > 0 && y + velY < GameWindow.HEIGHT - 80) {
@@ -72,7 +72,7 @@ public class Player extends Entity implements KeyListener {
         if (x + velX > 0 && x + velX < GameWindow.WIDTH - 50) {
             xPred += velX;
         }
-        Rectangle predrect = new Rectangle(xPred+10,yPred+40, rect.width, rect.height);
+        Rectangle predrect = new Rectangle(xPred + 7, yPred + 40, rect.width, rect.height);
         boolean isCollided = false;
         for (Obstacle obstacle : obstacles) {
             if (obstacle.getRect().intersects(predrect)) {
@@ -84,7 +84,7 @@ public class Player extends Entity implements KeyListener {
             x = xPred;
             y = yPred;
         }
-        rect.setBounds(x+10, y+40, rect.width, rect.height);
+        rect.setBounds(x + 7, y + 40, rect.width, rect.height);
     }
 
     public void keyPressed(KeyEvent e) {
@@ -102,7 +102,7 @@ public class Player extends Entity implements KeyListener {
             velY = 2;
         } else if (key == KeyEvent.VK_RIGHT) {
             velX = 2;
-        }else if (key == KeyEvent.VK_SPACE) {
+        } else if (key == KeyEvent.VK_SPACE) {
             System.out.println("Space pressed!");
             switch (direction) {
                 case 0 -> interactRect = new Rectangle(x + 12, y, 10, 10);
@@ -114,10 +114,10 @@ public class Player extends Entity implements KeyListener {
     }
 
     public void keyReleased(KeyEvent e) {
-       if (GameWindow.getDialog().isVisiable()) {
-           interactRect = new Rectangle();
-           return;
-       }
+        if (GameWindow.getDialog().isVisiable()) {
+            interactRect = new Rectangle();
+            return;
+        }
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_UP) {
@@ -139,8 +139,7 @@ public class Player extends Entity implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
-    public void interact (List<Obstacle> interactables) {
-        System.out.println("interact called");
+    public void interact(List<Obstacle> interactables) {
         if (interactables != null) {
             for (Obstacle interactable : interactables) {
                 if (interactRect.intersects(interactable.getRect())) {
@@ -148,12 +147,12 @@ public class Player extends Entity implements KeyListener {
                     System.out.println("interact of OBject called"); //TODO debug only
                 }
             }
-        }else if (interactables == null){
+        /*}else if (interactables == null){ //DEBUG, if cant interact or something
             System.out.println("Ez null");
         }else {
             System.out.println("nem megy bele");
+        }*/
         }
+
     }
-
-
 }

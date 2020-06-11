@@ -12,6 +12,8 @@ public class MirroredSink extends Obstacle {
     @Override
     public void paint(Graphics2D g) {
         super.paint(g);
+        g.setColor(Color.BLACK);
+        g.drawRect(rect.x,rect.y,rect.width,rect.height);
     }
 
 }
