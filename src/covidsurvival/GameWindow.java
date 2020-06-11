@@ -24,12 +24,14 @@ public class GameWindow extends JPanel implements ActionListener {
     private java.util.List<Obstacle> obstacles = new ArrayList<>();
     private java.util.List<Obstacle> interactables = new ArrayList<>();
     static Timer mainTimer;
+    private static Dialog dialog = new Dialog();
 
     public GameWindow() {
         this.setFocusable(true);
         mainTimer = new Timer(16, this);
         mainTimer.start();
         addKeyListener(player);
+        addKeyListener(dialog);
         obstacles = level.getObstacles();
         interactables = level.getInteractables();
         if (interactables == null) {
@@ -75,6 +77,9 @@ public class GameWindow extends JPanel implements ActionListener {
             obstacle.paint(g2d);
         }
         player.draw(g2d);
+        if (dialog.isVisiable) {
+            dialog.paint(g2d);
+        }
     }
 
     public ArrayList<BufferedImage> getImageList() {
@@ -83,31 +88,26 @@ public class GameWindow extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        player.update();
-        player.move(obstacles);
-        player.interact(interactables);
+        if (!dialog.isVisiable) {
+            player.update();
+            player.move(obstacles);
+            player.interact(interactables);
+        }
         repaint();
     }
 
-    public static void drawThePopUpWindow(Graphics2D g, int width, int height, String text,
+/*    public static void drawThePopUpWindow(Graphics2D g, int width, int height, String text,
                                           String answ1, String answ2, String answ3, String answ4) {
 
         mainTimer.stop();
-        Font font = new Font("arial", Font.BOLD, 14);
-        g.setFont(font);
-        int windowX = WIDTH / 2 - width / 2;
-        int windowY = HEIGHT / 2 - height / 2;
-        g.drawRect(windowX, windowY, width, height);
-        g.setColor(Color.WHITE);
-        g.fillRect(windowX, windowY, width, height);
-        g.setColor(Color.BLACK);
-        g.drawString(text, windowX + 10, windowY + 20);
-        g.drawString(answ1, windowX + 20, windowY + 45);
-        g.drawString(answ2, windowX + 20, windowY + 60);
-        // if (!answ4 != null)) g.drawString(answ4, windowX+10, windowY+70);
+
 
         mainTimer.start();
 
 
+    }*/
+
+    public static Dialog getDialog() {
+        return dialog;
     }
 }

@@ -23,7 +23,7 @@ public class Player extends Entity implements KeyListener {
 
     public Player(int x, int y) {
         super(x, y);
-        rect = new Rectangle(x, y, frameWidth, frameHeight);
+        rect = new Rectangle(x+10, y+40, 20, 10);
        image = Toolkit.getDefaultToolkit().getImage("res/frichim.png");
     }
 
@@ -54,6 +54,9 @@ public class Player extends Entity implements KeyListener {
         }
         int frameY = direction * frameHeight;
         g2d.drawImage(image, this.x, this.y, x + frameWidth, y + frameHeight, frameX, frameY, frameX + frameWidth, frameY + frameHeight, null);
+
+        g2d.setColor(Color.RED);
+        g2d.drawRect(rect.x,rect.y,rect.width,rect.height);
     }
 
     public void move (List<Obstacle> obstacles) {
@@ -65,7 +68,7 @@ public class Player extends Entity implements KeyListener {
         if (x + velX > 0 && x + velX < GameWindow.WIDTH - 50) {
             xPred += velX;
         }
-        Rectangle predrect = new Rectangle(xPred,yPred,frameWidth,frameHeight);
+        Rectangle predrect = new Rectangle(xPred+10,yPred+40, rect.width, rect.height);
         boolean isCollided = false;
         for (Obstacle obstacle : obstacles) {
             if (obstacle.getRect().intersects(predrect)) {
@@ -77,10 +80,14 @@ public class Player extends Entity implements KeyListener {
             x = xPred;
             y = yPred;
         }
-        rect.setBounds(x, y, rect.width, rect.height);
+        rect.setBounds(x+10, y+40, rect.width, rect.height);
     }
 
     public void keyPressed(KeyEvent e) {
+        if (GameWindow.getDialog().isVisiable()) {
+            interactRect = new Rectangle();
+            return;
+        }
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_UP) {
@@ -104,6 +111,10 @@ public class Player extends Entity implements KeyListener {
 
 
     public void keyReleased(KeyEvent e) {
+       if (GameWindow.getDialog().isVisiable()) {
+           interactRect = new Rectangle();
+           return;
+       }
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_UP) {
