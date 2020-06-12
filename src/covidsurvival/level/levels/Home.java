@@ -10,8 +10,8 @@ public class Home extends Level {
 
     public Home(int width, int height) {
         super(width, height);
-        playerStartingPosX = 164;
-        playerStartingPosY = 164;
+        playerStartingPosX = 352;
+        playerStartingPosY = 450;
         adjacentLevelList = new ArrayList<>();
         adjacentLevelList.add(new Corridor(20,20,this));
         int levelRowCount = 18;
