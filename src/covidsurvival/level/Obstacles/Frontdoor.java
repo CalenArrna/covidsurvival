@@ -28,6 +28,6 @@ public class Frontdoor extends Obstacle implements Interactable {
         List<Option> list = new ArrayList<>();
         list.add(new Option("Kimegyek az ajtón.", () -> GameWindow.setLevel(GameWindow.getLevel().getAdjacentLevelList().get(0))));
         list.add(new Option("Maradok.", () -> System.out.println("Maradtál.")));
-        GameWindow.getDialog().show("", list);
+        GameWindow.getDialog().show(new ArrayList<>(), list);
     }
 }

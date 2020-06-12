@@ -18,15 +18,15 @@ public class Fridge extends Obstacle implements Interactable {
     public void paint(Graphics2D g) {
         super.paint(g);
         rect.setBounds(x,y,32,62);
-
     }
 
     @Override
     public void interact() {
         List<Option> list = new ArrayList<>();
+        List<String> text = new ArrayList<>();
         list.add(new Option("Ezt fogjuk csinálni.", () -> System.out.println("Helló")));
         list.add(new Option("Nem ezt fogjuk csinálni.", () -> System.out.println("Viszlát")));
-
-        GameWindow.getDialog().show("I'm the fridge", list);
+        text.add("I'm the fridge");
+        GameWindow.getDialog().show(text, list);
     }
 }

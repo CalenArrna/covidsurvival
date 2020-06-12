@@ -7,7 +7,6 @@ import java.awt.event.KeyListener;
 
 public class GameRunner {
     //TODO: Create interacts for objects
-    //TODO: Fix dialog mark position
     //TODO: Change dialog rect to a nice img
     //TODO: Create a corridor map, for map change
     //TODO: Create a cat or a speakable NPC
@@ -25,6 +24,7 @@ public class GameRunner {
     //TODO: Try to simplify code structure
     //TODO: Make outside level + at least 1 shop
     //TODO: Make a story
+    //TODO: Get rid of Obstacles inheritance from Entity (sepatate living and not living things)
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("CovidSurvival");
