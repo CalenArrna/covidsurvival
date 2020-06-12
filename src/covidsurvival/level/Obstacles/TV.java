@@ -21,11 +21,11 @@ public class TV extends Obstacle implements Interactable {
     }
 
     @Override
-    public void paint(Graphics2D g) {
+    public void paint(Graphics2D g){
         super.paint(g);
-        rect.setBounds(x, y + 23, 31, 40);
+        rect.setBounds(x,y+23,31,40);
         g.setColor(Color.BLACK);
-        g.drawRect(rect.x, rect.y, rect.width, rect.height);
+        g.drawRect(rect.x,rect.y,rect.width,rect.height);
     }
 
     @Override

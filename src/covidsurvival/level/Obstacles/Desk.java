@@ -11,6 +11,6 @@ public class Desk extends Obstacle {
 
     @Override
     public void paint(Graphics2D g) {
-        super.paint(g);
+        super.paint(g);rect.setBounds(x,y+6,64,54);
     }
 }

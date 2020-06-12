@@ -20,6 +20,7 @@ public class Frontdoor extends Obstacle implements Interactable {
     @Override
     public void paint(Graphics2D g) {
         super.paint(g);
+        rect.setBounds(x,y,32,44);
     }
 
     @Override

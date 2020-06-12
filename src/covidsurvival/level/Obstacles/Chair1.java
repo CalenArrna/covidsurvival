@@ -12,6 +12,7 @@ public class Chair1 extends Obstacle {
     @Override
     public void paint(Graphics2D g) {
         super.paint(g);
+        rect.setBounds(x+5,y+3,20,23);
     }
 
 }

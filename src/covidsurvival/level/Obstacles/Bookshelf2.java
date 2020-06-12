@@ -12,5 +12,6 @@ public class Bookshelf2 extends Obstacle {
     @Override
     public void paint(Graphics2D g) {
         super.paint(g);
+        rect.setBounds(x,y,64,64);
     }
 }
