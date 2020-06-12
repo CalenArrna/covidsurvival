@@ -18,11 +18,11 @@ public class GameWindow extends JPanel implements ActionListener {
     private static final String NAME = "covidsurvival";
     public static final int HEIGHT = 1200; //TODO : adapt to level size
     public static final int WIDTH = 980;
-    private Level level = new Home(70,28);
-    private final Player player = new Player(level.playerStartingPosX, level.playerStartingPosY);
-    private java.util.List<Obstacle> obstacles = new ArrayList<>();
-    private java.util.List<Obstacle> interactables = new ArrayList<>();
-    static Timer mainTimer;
+    private static Level level = new Home(70, 28);
+    private static Player player = new Player(level.playerStartingPosX, level.playerStartingPosY);
+    private static java.util.List<Obstacle> obstacles = new ArrayList<>();
+    private static java.util.List<Obstacle> interactables = new ArrayList<>();
+    private static Timer mainTimer;
     private static Dialog dialog = new Dialog();
 
     public GameWindow() {
@@ -63,5 +63,17 @@ public class GameWindow extends JPanel implements ActionListener {
 
     public static Dialog getDialog() {
         return dialog;
+    }
+
+    public static Level getLevel() {
+        return level;
+    }
+
+    public static void setLevel(Level level) {
+        GameWindow.level = level;
+        obstacles = GameWindow.level.getObstacles();
+        interactables = GameWindow.level.getInteractables();
+        player.setX(GameWindow.level.playerStartingPosX);
+        player.setY(GameWindow.level.playerStartingPosY);
     }
 }

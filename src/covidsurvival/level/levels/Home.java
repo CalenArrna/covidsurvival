@@ -12,6 +12,8 @@ public class Home extends Level {
         super(width, height);
         playerStartingPosX = 164;
         playerStartingPosY = 164;
+        adjacentLevelList = new ArrayList<>();
+        adjacentLevelList.add(new Corridor(20,20,this));
         int levelRowCount = 18;
         int levelColCount = 21;
         //Construct the tiles here

@@ -13,6 +13,7 @@ public abstract class Level {
     protected Image image;
     protected ArrayList<Obstacle> obstacles;
     protected ArrayList<Obstacle> interactables;
+    protected ArrayList<Level> adjacentLevelList;
     public int playerStartingPosX;
     public int playerStartingPosY;
 
@@ -35,7 +36,7 @@ public abstract class Level {
         }
     }
 
-    protected void fillInteractables () {
+    protected void fillInteractables() {
         interactables = new ArrayList<>();
         for (Obstacle obstacle : obstacles) {
             if (obstacle instanceof Interactable) {
@@ -47,4 +48,9 @@ public abstract class Level {
     public ArrayList<Obstacle> getInteractables() {
         return interactables;
     }
+
+    public ArrayList<Level> getAdjacentLevelList() {
+        return adjacentLevelList;
+    }
+
 }
