@@ -2,14 +2,13 @@ package covidsurvival;
 
 import covidsurvival.entity.Player;
 import covidsurvival.level.Level;
-import covidsurvival.level.levels.Home;
 import covidsurvival.level.Obstacle;
+import covidsurvival.level.levels.Home;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 
@@ -22,21 +21,29 @@ public class GameWindow extends JPanel implements ActionListener {
     private static Player player;
     private static java.util.List<Obstacle> obstacles = new ArrayList<>();
     private static java.util.List<Obstacle> interactables = new ArrayList<>();
-    private static Timer mainTimer;
-    private static Dialog dialog = new Dialog();
+    public static Timer mainTimer;
+    private static final Dialog dialog = new Dialog();
 
     public GameWindow() {
         level = new Home(70, 28);
         player = new Player(164, 164);
         this.setFocusable(true);
-        mainTimer = new Timer(16, this);
-        mainTimer.start();
         addKeyListener(player);
         addKeyListener(dialog);
         obstacles = level.getObstacles();
         interactables = level.getInteractables();
+        System.out.println("Fut a gameWindow");
+        startTimer();
     }
 
+    void startTimer() {
+        mainTimer = new Timer(16, this);
+        mainTimer.start();
+    }
+
+    public static void stopTimer() {
+        mainTimer.stop();
+    }
 
     public void paint(Graphics g) {
         super.paint(g);
@@ -77,5 +84,7 @@ public class GameWindow extends JPanel implements ActionListener {
         interactables = GameWindow.level.getInteractables();
         player.setX(GameWindow.level.playerStartingPosX);
         player.setY(GameWindow.level.playerStartingPosY);
+        Sound.playSound(Sound.openSound(Sound.door));
     }
+
 }

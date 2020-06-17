@@ -1,14 +1,17 @@
 package covidsurvival.level.Obstacles;
 
-import covidsurvival.Action;
+import covidsurvival.GameRunner;
 import covidsurvival.GameWindow;
 import covidsurvival.Option;
+import covidsurvival.Sound;
 import covidsurvival.level.Interactable;
 import covidsurvival.level.Obstacle;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static covidsurvival.Sound.tvStatic;
 
 public class TV extends Obstacle implements Interactable {
     boolean powerIsOn = false;
@@ -22,11 +25,11 @@ public class TV extends Obstacle implements Interactable {
     }
 
     @Override
-    public void paint(Graphics2D g){
+    public void paint(Graphics2D g) {
         super.paint(g);
-        rect.setBounds(x,y+23,31,40);
+        rect.setBounds(x, y + 23, 31, 40);
         g.setColor(Color.BLACK);
-        g.drawRect(rect.x,rect.y,rect.width,rect.height);
+        g.drawRect(rect.x, rect.y, rect.width, rect.height);
     }
 
     @Override
@@ -40,12 +43,14 @@ public class TV extends Obstacle implements Interactable {
             list.add(new Option("Bekapcsolás.", () -> {
                 System.out.println("Bekapcsoltad a TV-t, itt majd más fog történni!");
                 powerSwitch();
+                GameRunner.sound.playBGMSound(Sound.openSound(tvStatic));
             }));
             list.add(new Option("Távozás.", () -> System.out.println("Viszlát...ez majd semmi lesz")));
         } else {
             list.add(new Option("Válts csatornát.", () -> System.out.println("Csatornát váltottál.")));
             list.add(new Option("Kikapcsolás.", () -> {
                 System.out.println("Kikapcs.");
+                GameRunner.sound.stopLoop();
                 powerSwitch();
             }));
             list.add(new Option("Távozás.", () -> System.out.println("Viszlát...ez majd semmi lesz")));

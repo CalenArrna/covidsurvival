@@ -2,6 +2,7 @@ package covidsurvival.level.Obstacles;
 
 import covidsurvival.GameWindow;
 import covidsurvival.Option;
+import covidsurvival.Sound;
 import covidsurvival.level.Interactable;
 import covidsurvival.level.Obstacle;
 
@@ -26,7 +27,8 @@ public class Frontdoor extends Obstacle implements Interactable {
     @Override
     public void interact() {
         List<Option> list = new ArrayList<>();
-        list.add(new Option("Kimegyek az ajtón.", () -> GameWindow.setLevel(GameWindow.getLevel().getAdjacentLevelList().get(0))));
+        list.add(new Option("Kimegyek az ajtón.", () ->  GameWindow.setLevel(GameWindow.getLevel().getAdjacentLevelList().get(0))));
+
         list.add(new Option("Maradok.", () -> System.out.println("Maradtál.")));
         GameWindow.getDialog().show(new ArrayList<>(), list);
     }

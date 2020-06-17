@@ -2,8 +2,7 @@ package covidsurvival;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
 
 public class GameRunner {
     //TODO: Create interacts for objects
@@ -26,13 +25,27 @@ public class GameRunner {
     //TODO: Make a story
     //TODO: Get rid of Obstacles inheritance from Entity (sepatate living and not living things)
 
+
+    public static Sound sound = new Sound();
+    public static MainMenu mainMenu = new MainMenu();
+    public static GameWindow gameWindow = new GameWindow();
+    public static JFrame frame = new JFrame("CovidSurvival");
+
     public static void main(String[] args) {
-        JFrame frame = new JFrame("CovidSurvival");
-        frame.add(new GameWindow()).setBackground(Color.BLACK);
-        frame.setSize(GameWindow.WIDTH, GameWindow.HEIGHT);
-        frame.setResizable(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(mainMenu).setBackground(Color.BLACK);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
-        frame.getPreferredSize();
+    }
+
+    public static void setGameWindow(GameWindow gameWindow) {
+        frame.dispose();
+        frame = new JFrame("CovidSurvival");
+        GameRunner.gameWindow = gameWindow;
+        frame.add(mainMenu).setBackground(Color.BLACK);
+        frame.add(gameWindow).setBackground(Color.BLACK);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setVisible(true);
     }
 }

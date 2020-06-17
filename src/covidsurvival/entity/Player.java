@@ -1,5 +1,7 @@
 package covidsurvival.entity;
 
+
+import covidsurvival.GameRunner;
 import covidsurvival.GameWindow;
 import covidsurvival.level.Interactable;
 import covidsurvival.level.Obstacle;
@@ -7,18 +9,14 @@ import covidsurvival.level.Obstacle;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Player extends Entity implements KeyListener {
     private int velX = 0, velY = 0;
-    private int frameWidth = 36, frameHeight = 52;
-    private int frameNumber = 3;
     private int actualFrame = 0;
-    private int frameDelay = 10;
     private int countFrames = 0;
     private int direction = 2;
-    private Image image;
+    private final Image image;
     private Rectangle interactRect = new Rectangle();
 
     public Player(int x, int y) {
@@ -34,8 +32,10 @@ public class Player extends Entity implements KeyListener {
 
     public void update() {
         countFrames++;
+        int frameDelay = 10;
         if (countFrames >= frameDelay) {
             if (velY != 0 || velX != 0) {
+                int frameNumber = 3;
                 if (actualFrame + 1 < frameNumber) {
                     actualFrame++;
                 } else {
@@ -47,6 +47,7 @@ public class Player extends Entity implements KeyListener {
     }
 
     public void draw(Graphics2D g2d) {
+        int frameWidth = 36;
         int frameX = actualFrame * frameWidth;
 
         if (velY < 0) direction = 0;
@@ -56,6 +57,7 @@ public class Player extends Entity implements KeyListener {
         if (!interactRect.isEmpty()) {  //TODO DUBUG ONLY
             g2d.draw(interactRect);
         }
+        int frameHeight = 52;
         int frameY = direction * frameHeight;
         g2d.drawImage(image, this.x, this.y, x + frameWidth, y + frameHeight, frameX, frameY, frameX + frameWidth, frameY + frameHeight, null);
 
@@ -114,6 +116,7 @@ public class Player extends Entity implements KeyListener {
     }
 
     public void keyReleased(KeyEvent e) {
+        System.out.println("keyreleased");
         if (GameWindow.getDialog().isVisiable()) {
             interactRect = new Rectangle();
             return;
@@ -126,12 +129,15 @@ public class Player extends Entity implements KeyListener {
             velX = 0;
         } else if (key == KeyEvent.VK_DOWN) {
             velY = 0;
-
         } else if (key == KeyEvent.VK_RIGHT) {
             velX = 0;
         } else if (key == KeyEvent.VK_SPACE) {
             System.out.println("Space released!");//TODO Debug only
             interactRect = new Rectangle();
+        } else if (key == KeyEvent.VK_ESCAPE) {
+            GameRunner.mainMenu.setVisible(true);
+            GameWindow.stopTimer();
+
         }
     }
 
@@ -147,12 +153,6 @@ public class Player extends Entity implements KeyListener {
                     System.out.println("interact of OBject called"); //TODO debug only
                 }
             }
-        /*}else if (interactables == null){ //DEBUG, if cant interact or something
-            System.out.println("Ez null");
-        }else {
-            System.out.println("nem megy bele");
-        }*/
         }
-
     }
 }
