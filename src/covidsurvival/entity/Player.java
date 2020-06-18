@@ -96,16 +96,15 @@ public class Player extends Entity implements KeyListener {
         }
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_UP) {
+        if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) {
             velY = -2;
-        } else if (key == KeyEvent.VK_LEFT) {
+        } else if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) {
             velX = -2;
-        } else if (key == KeyEvent.VK_DOWN) {
+        } else if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) {
             velY = 2;
-        } else if (key == KeyEvent.VK_RIGHT) {
+        } else if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) {
             velX = 2;
-        } else if (key == KeyEvent.VK_SPACE) {
-            System.out.println("Space pressed!");
+        } else if (key == KeyEvent.VK_SPACE || key == KeyEvent.VK_ENTER) {
             switch (direction) {
                 case 0 -> interactRect = new Rectangle(x + 12, y, 10, 10);
                 case 1 -> interactRect = new Rectangle(x + 36, y + 23, 10, 10);
@@ -116,28 +115,25 @@ public class Player extends Entity implements KeyListener {
     }
 
     public void keyReleased(KeyEvent e) {
-        System.out.println("keyreleased");
         if (GameWindow.getDialog().isVisiable()) {
             interactRect = new Rectangle();
             return;
         }
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_UP) {
+        if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) {
             velY = 0;
-        } else if (key == KeyEvent.VK_LEFT) {
+        } else if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) {
             velX = 0;
-        } else if (key == KeyEvent.VK_DOWN) {
+        } else if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) {
             velY = 0;
-        } else if (key == KeyEvent.VK_RIGHT) {
+        } else if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) {
             velX = 0;
-        } else if (key == KeyEvent.VK_SPACE) {
-            System.out.println("Space released!");//TODO Debug only
+        } else if (key == KeyEvent.VK_SPACE || key == KeyEvent.VK_ENTER) {
             interactRect = new Rectangle();
         } else if (key == KeyEvent.VK_ESCAPE) {
             GameRunner.mainMenu.setVisible(true);
             GameWindow.stopTimer();
-
         }
     }
 

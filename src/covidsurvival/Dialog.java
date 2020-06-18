@@ -63,11 +63,12 @@ public class Dialog implements KeyListener {
         if (!isVisiable) {
             return;
         }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+
+        if (e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_S) {
             selected = (selected + 1) % options.size();
-        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+        } else if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_W) {
             selected = (selected - 1 + options.size()) % options.size();
-        } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+        } else if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) {
             options.get(selected).action.execute();
             hide();
         }

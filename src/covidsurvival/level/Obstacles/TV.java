@@ -14,10 +14,12 @@ import java.util.List;
 import static covidsurvival.Sound.tvStatic;
 
 public class TV extends Obstacle implements Interactable {
+    List<String> text = new ArrayList<>();
     boolean powerIsOn = false;
 
     public TV(int x, int y) {
         super(x, y, 3, 11, 1, 2);
+        text.add("Television:");
     }
 
     public void powerSwitch() {
@@ -35,10 +37,6 @@ public class TV extends Obstacle implements Interactable {
     @Override
     public void interact() {
         List<Option> list = new ArrayList<>();
-        List<String> text = new ArrayList<>();
-        text.add("Television:");
-        text.add("Most egy olyan hosszú sort akarok beadni, amit");
-        text.add("muszáj lesz splittelnie, hát ráménykeggyűnk!");
         if (!powerIsOn) {
             list.add(new Option("Bekapcsolás.", () -> {
                 System.out.println("Bekapcsoltad a TV-t, itt majd más fog történni!");
@@ -55,7 +53,10 @@ public class TV extends Obstacle implements Interactable {
             }));
             list.add(new Option("Távozás.", () -> System.out.println("Viszlát...ez majd semmi lesz")));
         }
-
         GameWindow.getDialog().show(text, list);
+    }
+
+    public void setText(List<String> text) {
+        this.text = text;
     }
 }
