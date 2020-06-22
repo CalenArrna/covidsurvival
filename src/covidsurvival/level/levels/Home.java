@@ -28,11 +28,7 @@ public class Home extends Level {
                 } else if (i < 16 && j < 20) {
                     tiles[i][j] = new Tile(0, 5, 1, 1);
                 } else {
-                    if (j % 2 == 0) {
-                        tiles[i][j] = new Tile(16, 14, 1, 1);
-                    } else {
-                        tiles[i][j] = new Tile(16, 15, 1, 1);
-                    }
+                        tiles[i][j] = new Tile(0, 0, 1, 1);
                 }
             }
         }

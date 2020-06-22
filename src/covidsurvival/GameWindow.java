@@ -26,7 +26,7 @@ public class GameWindow extends JPanel implements ActionListener {
 
     public GameWindow() {
         level = new Home(70, 28);
-        player = new Player(164, 164);
+        player = new Player(340, 450);
         this.setFocusable(true);
         addKeyListener(player);
         addKeyListener(dialog);
