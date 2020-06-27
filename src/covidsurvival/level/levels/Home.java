@@ -13,7 +13,7 @@ public class Home extends Level {
         playerStartingPosX = 352;
         playerStartingPosY = 450;
         adjacentLevelList = new ArrayList<>();
-        adjacentLevelList.add(new Corridor(20,20,this));
+        adjacentLevelList.add(new Corridor(40, 40, this));
         int levelRowCount = 18;
         int levelColCount = 21;
         //Construct the tiles here
@@ -28,7 +28,7 @@ public class Home extends Level {
                 } else if (i < 16 && j < 20) {
                     tiles[i][j] = new Tile(0, 5, 1, 1);
                 } else {
-                        tiles[i][j] = new Tile(0, 0, 1, 1);
+                    tiles[i][j] = new Tile(0, 0, 1, 1);
                 }
             }
         }
@@ -84,16 +84,16 @@ public class Home extends Level {
                 if (row == 2 && col == 7) obstacles.add(new Desk(32 * col, 32 * row));
                 if (row == 6 && col == 4) obstacles.add(new Carpet1(32 * col, 32 * row));
                 if (row == 6 && col == 1) obstacles.add(new Carpet1(32 * col, 32 * row));
-                if (row == 2 && col == 3) obstacles.add(new Bed(32 * col+5, 32 * row-25));
-                if (row == 16 && col == 11) obstacles.add(new Frontdoor(32 * col, 32 * row));
+                if (row == 2 && col == 3) obstacles.add(new Bed(32 * col + 5, 32 * row - 25));
+                if (row == 16 && col == 11) obstacles.add(new Frontdoor(32 * col, 32 * row,0));
                 if (row == 3 && col == 6) obstacles.add(new Chair1(32 * col, 32 * row));
                 if (row == 1 && col == 10) obstacles.add(new Bookshelf(32 * col, 32 * row));
-                if (row == 2 && col == 1) obstacles.add(new Radio(32 * col, 32 * row));
+                if (row == 1 && col == 1) obstacles.add(new Radio(32 * col+10, 32 * row));
                 if (row == 9 && col == 14) obstacles.add(new Fridge(32 * col, 32 * row));
-                if (row == 10 && col == 1) obstacles.add(new Flower(32 * col, 32 * row));
-                if (row == 9 && col == 4) obstacles.add(new TV(32 * col, 32 * row));
+                if (row == 9 && col == 1) obstacles.add(new Flower(32 * col, 32 * row));
+                if (row == 9 && col == 4) obstacles.add(new TV(32 * col-16, 32 * row));
                 if (row == 9 && col == 6) obstacles.add(new Bookshelf2(32 * col, 32 * row));
-                if (row == 12 && col == 2) obstacles.add(new Carpet2(32 * col, 32 * row));
+                if (row == 12 && col == 2) obstacles.add(new Carpet2(32 * col, 32 * row-16));
                 if (row == 15 && col == 3) obstacles.add(new Couch(32 * col, 32 * row));
                 if (row == 14 && col == 7) obstacles.add(new Candles(32 * col, 32 * row));
                 if (row == 9 && col == 15) obstacles.add(new Table2(32 * col, 32 * row));
@@ -106,7 +106,7 @@ public class Home extends Level {
                 if (row == 14 && col == 18) obstacles.add(new Chair2(32 * col, 32 * row));
                 if (row == 14 && col == 19) obstacles.add(new Flower(32 * col, 32 * row));
                 if (row == 5 && col == 16) obstacles.add(new Carpet2(32 * col, 32 * row));
-                if (row == 6 && col == 14) obstacles.add(new Toilette(32 * col, 32 * row));
+                if (row == 6 && col == 14) obstacles.add(new Toilette(32 * col+5, 32 * row));
                 if (row == 1 && col == 18) obstacles.add(new Shower(32 * col, 32 * row));
                 if (row == 2 && col == 18) obstacles.add(new Hole(32 * col, 32 * row));
                 if (row == 2 && col == 15) obstacles.add(new MirroredSink(32 * col, 32 * row));

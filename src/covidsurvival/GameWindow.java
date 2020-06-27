@@ -3,7 +3,9 @@ package covidsurvival;
 import covidsurvival.entity.Player;
 import covidsurvival.level.Level;
 import covidsurvival.level.Obstacle;
+//import covidsurvival.level.levels.Corridor;
 import covidsurvival.level.levels.Home;
+import covidsurvival.level.levels.Street;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,8 +17,8 @@ import java.util.ArrayList;
 public class GameWindow extends JPanel implements ActionListener {
 
     private static final String NAME = "covidsurvival";
-    public static final int HEIGHT = 1200; //TODO : adapt to level size
-    public static final int WIDTH = 980;
+    public static final int HEIGHT = 980; //TODO : adapt to level size
+    public static final int WIDTH =1200;
     private static Level level;
     private static Player player;
     private static java.util.List<Obstacle> obstacles = new ArrayList<>();
@@ -26,7 +28,7 @@ public class GameWindow extends JPanel implements ActionListener {
 
     public GameWindow() {
         level = new Home(70, 28);
-        player = new Player(340, 450);
+        player = new Player(50, 150);
         this.setFocusable(true);
         addKeyListener(player);
         addKeyListener(dialog);
