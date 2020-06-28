@@ -24,8 +24,14 @@ public class Fridge extends Obstacle implements Interactable {
     public void interact() {
         List<Option> list = new ArrayList<>();
         List<String> text = new ArrayList<>();
-        list.add(new Option("Ezt fogjuk csinálni.", () -> System.out.println("Helló")));
-        list.add(new Option("Nem ezt fogjuk csinálni.", () -> System.out.println("Viszlát")));
+        list.add(new Option("Ezt fogjuk csinálni.", () -> {
+            System.out.println("Helló");
+            GameWindow.getPlayer().getCovidBar().setActualLevel(20); //TODO This shoud not do this, only testing
+        }));
+        list.add(new Option("Nem ezt fogjuk csinálni.", () -> {
+            System.out.println("Viszlát");
+            GameWindow.getPlayer().getCovidBar().setActualLevel(-20);
+        }));
         text.add("I'm the fridge");
         GameWindow.getDialog().show(text, list);
     }

@@ -7,11 +7,9 @@ import java.awt.event.WindowEvent;
 public class GameRunner {
     //TODO: Create interacts for objects
     //TODO: Change dialog rect to a nice img
-    //TODO: Create a corridor map, for map change
     //TODO: Create a cat or a speakable NPC
     //TODO: Create a TV Show
     //TODO: Try out a Gif in the game
-    //TODO: Can we play sounds? Music?
     //TODO: Test out the possibilities with this dialog box
     //TODO: Create a Covid level (health), when outside
     //TODO: Make the Rules of Covid level

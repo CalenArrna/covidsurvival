@@ -1,11 +1,13 @@
 package covidsurvival.entity;
 
 
+import covidsurvival.CovidBar;
 import covidsurvival.GameRunner;
 import covidsurvival.GameWindow;
 import covidsurvival.level.Interactable;
 import covidsurvival.level.Obstacle;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -18,16 +20,22 @@ public class Player extends Entity implements KeyListener {
     private int direction = 2;
     private final Image image;
     private Rectangle interactRect = new Rectangle();
+    private CovidBar covidBar;
 
     public Player(int x, int y) {
         super(x, y);
         rect = new Rectangle(x + 10, y + 40, 20, 10);
         image = Toolkit.getDefaultToolkit().getImage("res/frichim.png");
+        covidBar = new CovidBar();
     }
 
     public void setPlayerStartingPosition(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public void increaseCovid() {
+        covidBar.setValue(20);
     }
 
     public void update() {
@@ -141,6 +149,14 @@ public class Player extends Entity implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
+    public CovidBar getCovidBar() {
+        return covidBar;
+    }
+
+    public void setCovidBar(CovidBar covidBar) {
+        this.covidBar = covidBar;
+    }
+
     public void interact(List<Obstacle> interactables) {
         if (interactables != null) {
             for (Obstacle interactable : interactables) {
@@ -151,4 +167,5 @@ public class Player extends Entity implements KeyListener {
             }
         }
     }
+
 }
