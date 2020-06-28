@@ -38,6 +38,7 @@ public class GameWindow extends JPanel implements ActionListener {
         interactables = level.getInteractables();
         npc = level.getNPC();
         System.out.println("Fut a gameWindow");
+        this.add(player.getCovidBar(),BOTTOM_ALIGNMENT);
         startTimer();
     }
 
@@ -61,6 +62,7 @@ public class GameWindow extends JPanel implements ActionListener {
         }
 
         player.draw(g2d);
+        player.getCovidBar().repaint();
         if (dialog.isVisiable) {
             dialog.paint(g2d);
         }
@@ -94,4 +96,7 @@ public class GameWindow extends JPanel implements ActionListener {
         Sound.playSound(Sound.openSound(Sound.door));
     }
 
+    public static Player getPlayer() {
+        return player;
+    }
 }
