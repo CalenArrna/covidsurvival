@@ -2,6 +2,7 @@ package covidsurvival;
 
 import covidsurvival.entity.Player;
 import covidsurvival.level.Level;
+import covidsurvival.level.NPC;
 import covidsurvival.level.Obstacle;
 //import covidsurvival.level.levels.Corridor;
 import covidsurvival.level.levels.Home;
@@ -18,10 +19,11 @@ public class GameWindow extends JPanel implements ActionListener {
 
     private static final String NAME = "covidsurvival";
     public static final int HEIGHT = 980; //TODO : adapt to level size
-    public static final int WIDTH =1200;
+    public static final int WIDTH = 1200;
     private static Level level;
     private static Player player;
     private static java.util.List<Obstacle> obstacles = new ArrayList<>();
+    private static java.util.List<NPC> npc = new ArrayList<>();
     private static java.util.List<Obstacle> interactables = new ArrayList<>();
     public static Timer mainTimer;
     private static final Dialog dialog = new Dialog();
@@ -34,6 +36,7 @@ public class GameWindow extends JPanel implements ActionListener {
         addKeyListener(dialog);
         obstacles = level.getObstacles();
         interactables = level.getInteractables();
+        npc = level.getNPC();
         System.out.println("Fut a gameWindow");
         startTimer();
     }
@@ -56,6 +59,7 @@ public class GameWindow extends JPanel implements ActionListener {
         for (Obstacle obstacle : obstacles) {
             obstacle.paint(g2d);
         }
+
         player.draw(g2d);
         if (dialog.isVisiable) {
             dialog.paint(g2d);
@@ -84,6 +88,7 @@ public class GameWindow extends JPanel implements ActionListener {
         GameWindow.level = level;
         obstacles = GameWindow.level.getObstacles();
         interactables = GameWindow.level.getInteractables();
+        npc = GameWindow.level.getNPC();
         player.setX(GameWindow.level.playerStartingPosX);
         player.setY(GameWindow.level.playerStartingPosY);
         Sound.playSound(Sound.openSound(Sound.door));

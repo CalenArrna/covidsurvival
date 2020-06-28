@@ -64,4 +64,9 @@ public class Corridor extends Level {
             }
         }
     }
+
+    @Override
+    protected void fillNPC(int rowCount, int colCount) {
+
+    }
 }

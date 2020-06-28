@@ -1,5 +1,6 @@
 package covidsurvival.level.levels;
 
+import covidsurvival.level.NPC;
 import covidsurvival.level.Level;
 import covidsurvival.level.Obstacles.*;
 import covidsurvival.level.Tile;
@@ -90,6 +91,7 @@ public class Street extends Level {
         }
         fillObstacles(30, 40);
         fillInteractables();
+        fillNPC(30, 40);
     }
 
     @Override
@@ -120,10 +122,20 @@ public class Street extends Level {
                 } else if ((row == 15 && col == 21) || (row == 17 && col == 32) || (row == 1 && col == 1)) {
                     obstacles.add(new Tree(32 * col, 32 * row));
                 } else if (row == 5 && col == 36) {
-                    obstacles.add(new Frontdoor(32 * col, 32 * row + 16,0));
+                    obstacles.add(new Frontdoor(32 * col, 32 * row + 16, 0));
+                }
+                if (row == 10 && col == 33) {
+                    obstacles.add(new Dotty(32 * col, 32 * row + 16));
                 }
 
             }
         }
     }
+
+    @Override
+    protected void fillNPC(int rowCount, int colCount) {
+
+    }
+
+
 }

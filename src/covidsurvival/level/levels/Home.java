@@ -114,5 +114,10 @@ public class Home extends Level {
         }
     }
 
+    @Override
+    protected void fillNPC(int rowCount, int colCount) {
+
+    }
+
 
 }
