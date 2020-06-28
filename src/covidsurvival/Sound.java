@@ -24,7 +24,6 @@ public class Sound {
     public static final String test = "res/test.wav";
     public static final String door = "res/doorclosing.wav";
 
-
     public static AudioInputStream openSound(String audioFileName) {
         try {
             return AudioSystem.getAudioInputStream(new File(audioFileName));
@@ -52,7 +51,6 @@ public class Sound {
     }
 
     public void playBGMSound(AudioInputStream audio) {
-
         if (audio != null) {
             try {
                 clip.open(audio);

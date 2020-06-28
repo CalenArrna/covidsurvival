@@ -36,6 +36,8 @@ public class GameRunner {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
+      /*  frame.pack();
+        frame.getContentPane();*/
     }
 
     public static void setGameWindow(GameWindow gameWindow) {
