@@ -30,7 +30,7 @@ public class MainMenu extends JPanel implements ActionListener {
 
     {
         try {
-            image = ImageIO.read(new File("src/BGImage.png"));
+            image = ImageIO.read(new File("res/BGImage.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
