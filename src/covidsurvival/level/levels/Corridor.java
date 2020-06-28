@@ -14,7 +14,7 @@ public class Corridor extends Level {
         adjacentLevelList = new ArrayList<>();
         adjacentLevelList.add(from);
         adjacentLevelList.add(new Street(40, 40, this));
-        playerStartingPosX = 330;
+        playerStartingPosX = 350;
         playerStartingPosY = 50;
         for (int i = 0; i < tiles.length; i++) {
             for (int j = 0; j < tiles.length; j++) {
@@ -51,8 +51,8 @@ public class Corridor extends Level {
                 if (row == 10 && col == 0) obstacles.add(new OneTileWall(32 * col, 32 * row, 1, 4));
                 if (row == 10 && col == 20) obstacles.add(new OneTileWall(32 * col, 32 * row, 1, 5));
 
-                if (row == 0 && col == 11) obstacles.add(new Frontdoor(32 * col, 32 * row,0));
-                if (row == 10 && col == 11) obstacles.add(new Frontdoor(32 * col, 32 * row,1));
+                if (row == 0 && col == 11) obstacles.add(new Frontdoor(32 * col, 32 * row,0,350,50));
+                if (row == 10 && col == 11) obstacles.add(new Frontdoor(32 * col, 32 * row,1,350,260));
 
                 if (row == 2 && col == 2) obstacles.add(new VendingMachine(32 * col, 32 * row));
                 if (row == 7 && col == 3) obstacles.add(new Carpet1(32 * col, 32 * row));

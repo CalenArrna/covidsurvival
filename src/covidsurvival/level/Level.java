@@ -58,11 +58,8 @@ public abstract class Level {
         return adjacentLevelList;
     }
 
-    public void setPlayerStartingPosX(int playerStartingPosX) {
-        this.playerStartingPosX = playerStartingPosX;
-    }
-
-    public void setPlayerStartingPosY(int playerStartingPosY) {
-        this.playerStartingPosY = playerStartingPosY;
+    public void setPlayerStartingPosition(int X, int Y) {
+        this.playerStartingPosX = X;
+        this.playerStartingPosY = Y;
     }
 }

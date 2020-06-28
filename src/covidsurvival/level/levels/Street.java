@@ -1,5 +1,6 @@
 package covidsurvival.level.levels;
 
+import covidsurvival.entity.Dotty;
 import covidsurvival.level.NPC;
 import covidsurvival.level.Level;
 import covidsurvival.level.Obstacles.*;
@@ -122,7 +123,7 @@ public class Street extends Level {
                 } else if ((row == 15 && col == 21) || (row == 17 && col == 32) || (row == 1 && col == 1)) {
                     obstacles.add(new Tree(32 * col, 32 * row));
                 } else if (row == 5 && col == 36) {
-                    obstacles.add(new Frontdoor(32 * col, 32 * row + 16, 0));
+                    obstacles.add(new Frontdoor(32 * col, 32 * row + 16, 0,1150,220));
                 }
                 if (row == 10 && col == 33) {
                     obstacles.add(new Dotty(32 * col, 32 * row + 16));

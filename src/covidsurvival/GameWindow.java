@@ -38,7 +38,7 @@ public class GameWindow extends JPanel implements ActionListener {
         interactables = level.getInteractables();
         npc = level.getNPC();
         System.out.println("Fut a gameWindow");
-        this.add(player.getCovidBar(),BOTTOM_ALIGNMENT);
+        this.add(player.getCovidBar(), BOTTOM_ALIGNMENT);
         startTimer();
     }
 

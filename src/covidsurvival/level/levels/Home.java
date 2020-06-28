@@ -85,7 +85,7 @@ public class Home extends Level {
                 if (row == 6 && col == 4) obstacles.add(new Carpet1(32 * col, 32 * row));
                 if (row == 6 && col == 1) obstacles.add(new Carpet1(32 * col, 32 * row));
                 if (row == 2 && col == 3) obstacles.add(new Bed(32 * col + 5, 32 * row - 25));
-                if (row == 16 && col == 11) obstacles.add(new Frontdoor(32 * col, 32 * row,0));
+                if (row == 16 && col == 11) obstacles.add(new Frontdoor(32 * col, 32 * row,0,352,450));
                 if (row == 3 && col == 6) obstacles.add(new Chair1(32 * col, 32 * row));
                 if (row == 1 && col == 10) obstacles.add(new Bookshelf(32 * col, 32 * row));
                 if (row == 1 && col == 1) obstacles.add(new Radio(32 * col+10, 32 * row));

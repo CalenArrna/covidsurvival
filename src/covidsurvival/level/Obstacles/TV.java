@@ -13,7 +13,7 @@ import java.util.List;
 
 import static covidsurvival.Sound.tvStatic;
 
-public class TV extends Obstacle implements Interactable {
+public class TV extends Obstacle implements Interactable { //TODO: fix the bug, that tv sound playing after leaving home...
     List<String> text = new ArrayList<>();
     boolean powerIsOn = false;
 
