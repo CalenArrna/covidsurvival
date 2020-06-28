@@ -4,15 +4,15 @@ import covidsurvival.level.Obstacle;
 
 import java.awt.*;
 
-public class Tree extends Obstacle {
-    public Tree(int x, int y) {
-        super(x, y, 15, 0, 3, 3);
-
+public class YellowRoofHouse extends Obstacle {
+    public YellowRoofHouse(int x, int y) {
+        super(x, y, 29, 0, 4, 4);
     }
 
     @Override
     public void paint(Graphics2D g) {
         super.paint(g);
-        this.rect = new Rectangle(x + 5, y + 5, 80, 80);
+        rect.setBounds(x, y, 128, 128);
     }
+
 }

@@ -13,9 +13,9 @@ import java.util.List;
 public class Frontdoor extends Obstacle implements Interactable {
     private final int id;
 
-    public Frontdoor(int x, int y) {
+    public Frontdoor(int x, int y, int id) {
         super(x, y, 9, 5, 1, 2);
-        id = 1; //TODO: create uniqe per level, to assiciate with different level loads
+        this.id=id; //TODO: create uniqe per level, to assiciate with different level loads
     }
 
     @Override
@@ -27,7 +27,7 @@ public class Frontdoor extends Obstacle implements Interactable {
     @Override
     public void interact() {
         List<Option> list = new ArrayList<>();
-        list.add(new Option("Kimegyek az ajtón.", () ->  GameWindow.setLevel(GameWindow.getLevel().getAdjacentLevelList().get(0))));
+        list.add(new Option("Kimegyek az ajtón.", () ->  GameWindow.setLevel(GameWindow.getLevel().getAdjacentLevelList().get(id))));
 
         list.add(new Option("Maradok.", () -> System.out.println("Maradtál.")));
         GameWindow.getDialog().show(new ArrayList<>(), list);
