@@ -2,7 +2,6 @@ package covidsurvival;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowEvent;
 
 public class GameRunner {
     //TODO: Create interacts for objects
@@ -35,9 +34,8 @@ public class GameRunner {
         frame.add(mainMenu).setBackground(Color.BLACK);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setUndecorated(true);
         frame.setVisible(true);
-      /*  frame.pack();
-        frame.getContentPane();*/
     }
 
     public static void setGameWindow(GameWindow gameWindow) {
@@ -48,6 +46,7 @@ public class GameRunner {
         frame.add(gameWindow).setBackground(Color.BLACK);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setUndecorated(true);
         frame.setVisible(true);
     }
 }
