@@ -1,7 +1,5 @@
 package covidsurvival;
 
-import covidsurvival.level.Obstacles.ImagePanel;
-
 import javax.swing.*;
 import java.awt.*;
 

@@ -1,4 +1,4 @@
-package covidsurvival.level.Obstacles;
+package covidsurvival;
 
 import java.awt.*;
 import javax.swing.JPanel;
