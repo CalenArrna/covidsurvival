@@ -1,5 +1,6 @@
 package covidsurvival.level.levels;
 
+import covidsurvival.Sound;
 import covidsurvival.level.Level;
 import covidsurvival.level.Obstacles.*;
 import covidsurvival.level.Tile;
@@ -11,6 +12,9 @@ public class Corridor extends Level {
 
     public Corridor(int height, int width, Level from) {
         super(height, width);
+        if (TV.isPowerIsOn() ){
+            Sound.playSound(Sound.openSound(Sound.tvStatic2));
+        }
         adjacentLevelList = new ArrayList<>();
         adjacentLevelList.add(from);
         adjacentLevelList.add(new Street(40, 40, this));

@@ -1,7 +1,10 @@
 package covidsurvival;
 
+import com.sun.tools.javac.Main;
+
 import javax.swing.*;
 import java.awt.*;
+import java.net.URL;
 
 public class GameRunner {
     //TODO: Create interacts for objects

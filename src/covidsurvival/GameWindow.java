@@ -4,16 +4,15 @@ import covidsurvival.entity.Player;
 import covidsurvival.level.Level;
 import covidsurvival.level.NPC;
 import covidsurvival.level.Obstacle;
-//import covidsurvival.level.levels.Corridor;
+import covidsurvival.level.Obstacles.TV;
 import covidsurvival.level.levels.Home;
-import covidsurvival.level.levels.Street;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import static covidsurvival.Sound.tvStatic;
 
 public class GameWindow extends JPanel implements ActionListener {
 
@@ -38,7 +37,7 @@ public class GameWindow extends JPanel implements ActionListener {
         interactables = level.getInteractables();
         npc = level.getNPC();
         System.out.println("Fut a gameWindow");
-        this.add(player.getCovidBar(), BOTTOM_ALIGNMENT);
+        this.add(player.getCovidBar());
         startTimer();
     }
 

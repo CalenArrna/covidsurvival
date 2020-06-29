@@ -7,7 +7,6 @@ import covidsurvival.GameWindow;
 import covidsurvival.level.Interactable;
 import covidsurvival.level.Obstacle;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -27,6 +26,7 @@ public class Player extends Entity implements KeyListener {
         rect = new Rectangle(x + 10, y + 40, 20, 10);
         image = Toolkit.getDefaultToolkit().getImage("res/frichim.png");
         covidBar = new CovidBar();
+
     }
 
     public void setPlayerStartingPosition(int x, int y) {
@@ -141,7 +141,9 @@ public class Player extends Entity implements KeyListener {
             interactRect = new Rectangle();
         } else if (key == KeyEvent.VK_ESCAPE) {
             GameRunner.mainMenu.setVisible(true);
+            GameRunner.sound.stopLoop();
             GameWindow.stopTimer();
+            covidBar.setVisible(false);
         }
     }
 

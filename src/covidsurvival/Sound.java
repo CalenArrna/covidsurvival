@@ -20,6 +20,8 @@ public class Sound {
 
     public static final String bgm = "res/bgm.wav";
     public static final String tvStatic = "res/tvstatic.wav";
+    public static final String tvStatic2 = "res/tvstatic2.wav";
+    public static final String gyorfi = "res/gyorfi.wav";
     public static final String catmeow = "res/catmeow.wav";
     public static final String test = "res/test.wav";
     public static final String door = "res/doorclosing.wav";
@@ -50,7 +52,7 @@ public class Sound {
         }
     }
 
-    public void playBGMSound(AudioInputStream audio) {
+    public  void playBGMSound(AudioInputStream audio) {
         if (audio != null) {
             try {
                 clip.open(audio);
