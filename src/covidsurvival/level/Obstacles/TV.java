@@ -18,7 +18,8 @@ import static covidsurvival.Sound.tvStatic;
 public class TV extends Obstacle implements Interactable { //TODO: fix the bug, that tv sound playing after leaving home...
     List<String> text = new ArrayList<>();
     public static boolean powerIsOn = false;
-    JFrame frame = new JFrame();
+
+
     public TV(int x, int y) {
         super(x, y, 3, 11, 1, 2);
         text.add("Television:");
@@ -56,14 +57,14 @@ public class TV extends Obstacle implements Interactable { //TODO: fix the bug, 
                 System.out.println("Viszlát...ez majd semmi lesz");
                 GameRunner.sound.stopLoop();
                 GameRunner.sound.playBGMSound(Sound.openSound(gyorfi));
-                showLoader();
+                GameRunner.showGif();
+                GameRunner.frame.setVisible(true);
             }));
             list.add(new Option("Kikapcsolás.", () -> {
                 System.out.println("Kikapcs.");
                 GameRunner.sound.stopLoop();
                 powerSwitch();
-                frame.dispose();
-                frame.setVisible(false);
+                GameRunner.hideGif();
             }));
             list.add(new Option("Távozás.", () -> System.out.println("Viszlát...ez majd semmi lesz")));
         }
@@ -72,16 +73,5 @@ public class TV extends Obstacle implements Interactable { //TODO: fix the bug, 
 
     public void setText(List<String> text) {
         this.text = text;
-    }
-
-    public void showLoader() {
-        frame.add(new ImagePanel());
-        frame.setSize(289, 216);
-        frame.setUndecorated(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setAlwaysOnTop(true);
-        frame.setAutoRequestFocus(false);
-        //frame.dispose();
-        frame.setVisible(true);
     }
 }

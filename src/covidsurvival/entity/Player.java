@@ -144,6 +144,7 @@ public class Player extends Entity implements KeyListener {
             GameRunner.sound.stopLoop();
             GameWindow.stopTimer();
             covidBar.setVisible(false);
+            GameRunner.hideGif();
         }
     }
 

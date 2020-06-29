@@ -35,6 +35,7 @@ public class Frontdoor extends Obstacle implements Interactable {
             GameWindow.getLevel().setPlayerStartingPosition(playerX,playerY);
             GameWindow.setLevel(GameWindow.getLevel().getAdjacentLevelList().get(id));
             GameRunner.sound.stopLoop();
+            GameRunner.hideGif();
         }));
 
         list.add(new Option("Maradok.", () -> System.out.println("Maradtál.")));

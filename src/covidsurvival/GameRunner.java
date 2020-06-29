@@ -1,10 +1,9 @@
 package covidsurvival;
 
-import com.sun.tools.javac.Main;
+import covidsurvival.level.Obstacles.ImagePanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.net.URL;
 
 public class GameRunner {
     //TODO: Create interacts for objects
@@ -30,6 +29,7 @@ public class GameRunner {
     public static MainMenu mainMenu = new MainMenu();
     public static GameWindow gameWindow = new GameWindow();
     public static JFrame frame = new JFrame("CovidSurvival");
+    public static JFrame gyorfiFrame = new JFrame();
 
     public static void main(String[] args) {
         frame.add(mainMenu).setBackground(Color.BLACK);
@@ -49,5 +49,20 @@ public class GameRunner {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setUndecorated(true);
         frame.setVisible(true);
+    }
+
+    public static void showGif() {
+        gyorfiFrame.add(new ImagePanel());
+        gyorfiFrame.setSize(289, 216);
+        gyorfiFrame.setUndecorated(true);
+        gyorfiFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        gyorfiFrame.setAlwaysOnTop(true);
+        gyorfiFrame.setVisible(true);
+    }
+
+    public static void hideGif() {
+        GameRunner.sound.stopLoop();
+        gyorfiFrame.dispose();
+        gyorfiFrame.setVisible(false);
     }
 }
